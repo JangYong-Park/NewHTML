@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button and Image Toggle</title>
+    <style>
+        .image {
+            display: none; /* 초기에는 이미지를 보이지 않도록 설정 */
+            width: 300px; /* 이미지 크기 조절 */
+            height: 300px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 버튼 1 -->
+    <button onclick="showImage(1)">Show Image 1</button>
+    <!-- 버튼 2 -->
+    <button onclick="showImage(2)">Show Image 2</button>
+    <!-- 버튼 3 -->
+    <button onclick="showImage(3)">Show Image 3</button>
+
+    <!-- 이미지 1 -->
+    <img id="image1" class="image" src="Apple.jpg" alt="Image 1">
+    <!-- 이미지 2 -->
+    <img id="image2" class="image" src="BaNana.jpg" alt="Image 2">
+    <!-- 이미지 3 -->
+    <img id="image3" class="image" src="Tree.jpg" alt="Image 3">
+
+    <script>
+        function showImage(imageNumber) {
+            // 모든 이미지를 none으로 설정
+            var images = document.querySelectorAll('.image');
+            images.forEach(function(image) {
+                image.style.display = 'none';
+            });
+
+            // 클릭된 이미지 번호에 해당하는 이미지를 block으로 설정
+            var selectedImage = document.getElementById('image' + imageNumber);
+            selectedImage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

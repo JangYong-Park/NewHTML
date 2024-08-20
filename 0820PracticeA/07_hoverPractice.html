@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            display:none;
+        }
+        img:hover {
+            filter: blur();
+            -webkit-filter: blur();
+        }
+    </style>
+</head>
+<body>
+    <button onclick="클릭1()" id="displayOpen">이미지보이기1</button><br>
+    <div id="displayOpen"><img src="Apple.jpg" alt=""></div><br>
+    <button onclick="클릭2()">이미지보이기2</button><br>
+    <img src="BaNana.jpg" alt=""><br>
+    <button onclick="클릭3()">이미지보이기3</button><br>
+    <img src="Tree.jpg" alt=""><br>
+
+    <script>
+    function 클릭1(){
+        let view = document.getElementById('displayOpen');
+        view.style.display = 'block';
+    }
+        </script>
+</body>
+</html>

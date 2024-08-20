@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상식별자</title>
+    <style>
+        a{
+            /* display: block; */
+            font-size: 20px;
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            color: blue;
+            border: 1px solid #333;
+        }
+        a:visited{
+            color:blueviolet
+        }
+        a:link{
+            color: green;
+        }
+        input:hover{
+            border-color: blue;
+        }
+        input:focus{
+            border-color:green;
+        }
+        label{
+            margin: 15px;
+            font-size: 20px;
+            font-weight: bold;
+
+        }
+        label::before{
+            content: '*';
+            color: darkred;
+        }
+        label::after{
+            content: ' - 끝난줄 알았지?!';
+            color: green;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <a href="https://google.com">Google</a> <br>
+    <a href="https://asdasdasdasd.com">Wrong site 1</a> <br>
+    <a href="https://asdafasdasdasd.com">Wrong site 2</a> <br>
+
+    <label>입력창</label>
+    <input type="text" id="">
+
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img_result {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            display: none; /* 초기에는 보이지 않도록 설정 */
+        }
+        .tree01 {
+            background-image: url('images.jpg'); /* 올바른 경로로 수정 */
+            background-size: cover;
+        }
+        .tree02 {
+            background-image: url('images.jpg');
+            background-size: cover;
+        }
+        .tree03 {
+            background-image: url('images.jpg');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="이미지 만들기1" onclick="imageCreate('img1')">
+    <div class="img_result tree01" id="img1"></div>
+
+    <input type="button" value="이미지 만들기2" onclick="imageCreate('img2')">
+    <div class="img_result tree02" id="img2"></div>
+
+    <input type="button" value="이미지 만들기3" onclick="imageCreate('img3')">
+    <div class="img_result tree03" id="img3"></div>
+
+    <script>
+        function imageCreate(imageId) {
+            let element = document.getElementById(imageId);
+
+            if (element.style.display === 'block') {
+                element.style.display = 'none';
+            } else {
+                element.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
