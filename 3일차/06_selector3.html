@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* P태그 바로 옆에 있는 ul에 태그 적용 */
+        section>p+ul>li{
+            margin: 5px;
+            border: 2px solid blue;
+        }
+        /* P태그 다음에 오는 모든 ul에 태그 적용 */
+        section>p ~ ul {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>out1</li>
+    </ul>
+    <section>
+        <p>P태그 입니다</p>
+        <ul>
+            <li>리스트1</li>
+            <li>리스트2</li>
+            <ul>
+                <li>리스트1</li>
+                <li>리스트2</li>
+            </ul>
+        </ul>
+        <p>P태그 입니다</p>
+        <ul>
+                <li>리스트1</li>
+                <li>리스트2</li>
+        </ul>
+    </section>
+</body>
+</html>

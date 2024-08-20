@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 - 1</title>
+    <style>
+        /* 태그명 그대로 css를 줄 수 있다 ?!?! a안에 href 밑줄을 지울수 있다!*/
+        a {
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: black;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        /* 클래스를 width 크기를 넣어서 만들어놓고, 적용을 시키기도 한다! */
+        .wid-10{
+            width: 10px;
+        }
+        .wid-20{
+            width: 20px;
+        }
+        /* title 내용css를 title_content를 통해 만들어 준다! */
+        .title_content{
+            border: 2px dashed blue;
+        }
+        /* #을 통해 input 내용에 css를 줄 수 있다 */
+        #input_text{
+            margin: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-bottom: 1px solid #000;
+
+        }
+        /* h1중에서, class를 가진 친구가 있을 때 적용 하겠다 ! */
+        h1[class]{
+            color: antiquewhite;
+        }
+        h1[target]{
+            border: 1px solid #bd1f1f;
+        }
+        h1[class="www"]{
+            border: 3px solid red;
+        }
+        /* 태그가 h1이면서, 클래스가 ddd이면 */
+        h1.ddd{
+            margin: 20px;
+        }
+        /* 링크가 naver 이면 */
+        a[href="https://www.naver.com"]{
+            color:aqua
+        }
+    </style>
+</head>
+<body>
+    <h1>제목 타이틀</h1>
+    <h1 class="www">제목1</h1>
+    <h1 class="ddd" target>제목1</h1>
+    
+    <h2 class="title_content wid-20">제목2 타이틀</h2>
+    <a href="https://www.naver.com">naver 바로가기</a> <br>
+    <a href="https://www.google.com">google 바로가기</a> <br>
+    <input type="text" id="input_text">
+    <!-- id를 #을 통해 지정해주고 있음 -->
+
+</body>
+</html>

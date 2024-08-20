@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img_size{
+            width: 100px;
+            height: 100px;
+        }
+        .img_size2{
+            width: 200px;
+            height: 300px;
+            border: 3px solid burlywood;
+            overflow: scroll;
+        }
+        .first{
+            background-color: #c2da2a;
+        }
+        .select_img{
+            background-image: url(images.jpg);
+        }
+        .b{
+            background-size: contain;
+        }
+        .c{
+            background-size: cover;
+        }
+        .scroll {
+            background-attachment: scroll;
+        }
+        .fixed {
+            background-attachment: fixed;
+        }
+        .local {
+            background-attachment: local;
+        }
+
+        .inline{
+            display: flex;
+        }
+        /* 점심 이후 추가된 css */
+        .gra{
+            margin-top: 20px;
+            width: 400px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+        /* 배경을 그라디언트를 주는데, 오른쪽 방향으로 0 빨강 - 50 노랑 - 100 파랑 */
+        .back-gradiend{
+            background: linear-gradient(to right, red 0%, yellow 50%, blue 100%); 
+        }
+        /* 배경을 그라디언트를 주는데, 50도 꺾어서 0 빨강 - 100 파랑 */
+        .back-gradiend2{
+            background: linear-gradient(50deg , red 0%, blue 100%);
+        }
+        /* 배경을 그라디언트를 주는데, 원형 모양으로 10 빨강 - 50 파랑 - 끝에서 노랑 */
+        .back-gradiend3{
+            background: radial-gradient(circle at 10% 50%,red, blue, yellow);
+        }
+    
+
+    </style>
+
+</head>
+<body>
+    <img src="images.jpg">
+    <img src="../3일차/images.jpg">
+
+    <div class="img_size first">
+        <div class="img_size select_img" ></div>
+        <div class="img_size select_img a" ></div>
+        <div class="img_size select_img b" ></div>
+        <div class="img_size select_img c" ></div><br>
+
+        <div class="img_size2 select_img inline fixed">
+            <p>asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</p>
+        </div>
+        <div class="img_size2 select_img inline local">
+            <p>asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</p>
+        </div>
+        <div class="img_size2 select_img inline scroll">
+            <p>asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</p>
+        </div>
+        <!-- 점심 이후 추가된 html -->
+        <div class="gra back-gradiend"></div>
+        <div class="gra back-gradiend2"></div>
+        <div class="gra back-gradiend3"></div>
+
+    </div>
+</body>
+</html>
