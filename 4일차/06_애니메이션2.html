@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outline, .box{
+            position: absolute;
+            top: 300px;
+            left: 300px;
+            width: 60px;
+            height: 60px;
+        }
+        .outline{
+            /* margin-top: 20px; */
+            position: relative;
+            border: 3px solid yellow;
+            box-shadow: 8px 5px 14px rgb(144, 227, 255);
+        }
+        .box {
+            position: absolute;
+            background-color: deepskyblue;
+        }
+        .animation01 {
+            animation:test01 1s infinite;
+        }
+        .animation02 {
+            animation:test02 1s infinite;
+        }
+        /* 애니메이션을 적용 할 때의 옵션 */
+        /* @keyframes 애니메이션 명(변수명) */
+        @keyframes test01 {
+            /* 시작 */
+            from{ transform: rotate(0deg); background-color: red;}
+            
+            /* 종료 */
+            to{ transform: rotate(90deg);background-color: blue;}
+        }
+        @keyframes test02 {
+            from{
+                transform: rotate(0deg) translate(0px);
+            }
+            to{
+                transform: rotate(1080deg) translate(300px); 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="outline parOunline">
+        <div class="box animation02"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outline, .box{
+            width: 60px;
+            height: 60px;
+        }
+        .outline{
+            margin-top: 20px;
+            border: 3px solid yellow;
+            box-shadow: 8px 5px 14px rgb(144, 227, 255);
+        }
+        .box {
+            background-color: deepskyblue;
+        }
+        .animation {
+            animation:test01 1s infinite;
+        }
+        /* 애니메이션을 적용 할 때의 옵션 */
+        /* @keyframes 애니메이션 명(변수명) */
+        @keyframes test01 {
+            /* 시작 */
+            from{ transform: rotate(0deg); background-color: red;}
+            
+            /* 종료 */
+            to{ transform: rotate(90deg);background-color: blue;}
+        }
+    </style>
+</head>
+<body>
+    <div class="outline parOunline">
+        <div class="box animation"></div>
+    </div>
+</body>
+</html>

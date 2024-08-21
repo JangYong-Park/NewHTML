@@ -5,6 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>transform</title>
     <style>
+        .outline, .box{
+            width: 60px;
+            height: 60px;
+        }
+        .outline{
+            margin-top: 20px;
+            border: 3px solid yellow;
+            box-shadow: 8px 5px 14px rgb(144, 227, 255);
+        }
+        .box {
+            background-color: deepskyblue;
+        }
+        .translate1 {
+            transform: translateX(200px);
+        }
+        .translate2 {
+            transform: translateX(-50px);
+        }
+        .translate3 {
+            transform: translate(150px,150px);
+        }
+        .translate4 {
+            transform: translate(150px,150px);
+        }
+        .translate5 {
+            transform: translate(150px,150px);
+        }
+        .scale {
+            transform: scale(1.5);
+        }
+        .scale2 {
+            transform: scaleX(0.5);
+        }
+        .scale3 {
+            transform: scaleY(0.5);
+        }
+        .rotate {
+            transform: rotate(50deg);
+        }
+        .rotateX {
+            transform: rotateX(1deg);
+        }
+        .parOunline{
+            perspective: 1px;
+        }
+        .skew1{
+            transform: skew(15deg, 20deg);
+        }
+        .skew2{
+            transform: skewX(50deg);
+        }
+        .skew3{
+            transform: skewY(50deg);
+        }
 
 
 
@@ -12,6 +66,47 @@
 </head>
 
 <body>
+    <!-- <div class="outline">
+        <div class="box translate1"></div>
+    </div>
+    <div class="outline">
+        <div class="box translate2"></div>
+    </div>
+    <div class="outline">
+        <div class="box translate3"></div>
+    </div>
+    <div class="outline">
+        <div class="box translate4"></div>
+    </div>
+    <div class="outline">
+        <div class="box translate5"></div>
+    </div> -->
+
+    <!-- <h1>scale</h1>
+    <div class="outline">
+        <div class="box scale"></div>
+    </div>
+    <div class="outline">
+        <div class="box scale2"></div>
+    </div>
+    <div class="outline">
+        <div class="box scale3"></div>
+    </div> -->
+    <H1>BOX ROTATE</H1>
+    <div class="outline parOunline">
+        <div class="box rotateX"></div>
+    </div>
     
+    <h1>skew</h1>
+    <div class="outline parOunline">
+        <div class="box skew1"></div>
+    </div>
+    <div class="outline parOunline">
+        <div class="box skew2"></div>
+    </div>
+    <div class="outline parOunline">
+        <div class="box skew3"></div>
+    </div>
+
 </body>
 </html>
