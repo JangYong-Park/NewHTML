@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 헤드에 script를 넣는 경우도 있지만, body에 있는 user id를 읽어오지 못해서 에러가 남 -->
+    <!-- <script>
+        // document를 통해 접근이 가능. dom이라고 부름
+        let dd = document.getElementById('user_id').value;
+        console.log(dd);
+    </script> -->
+</head>
+<body>
+    <input type="text" name="" id="user_id" value="Hello world">
+    <input type="button" value="클릭" onclick=클릭()>
+    <script>
+        
+        let dd = document.getElementById('user_id');
+        console.log(document.getElementById('user_id'))
+        //document.getElementById('user_id').value = 'java';
+        //dd.value = '청양'
+        //stack - heap
+        //dd => hello world 가 들어왔지만 str은 아님. why? => user id의 value를 가르키되, value만 출력을 해줌
+        
+
+        //이벤트 핸들러는 항상 함수가 따라옴
+        //이벤트 핸들러 - 마우스 or 키보드 or 페이지
+        function 클릭() {
+            alert(dd.value)
+        }
+    </script>
+</body>
+</html>

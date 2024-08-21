@@ -5,31 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        img{
+        img {
             width: 200px;
             height: 200px;
             border-radius: 15px;
-            display:none;
+            display: none;
         }
         img:hover {
-            filter: blur();
-            -webkit-filter: blur();
+            filter: blur(5px);
         }
     </style>
 </head>
 <body>
-    <button onclick="클릭1()" id="displayOpen">이미지보이기1</button><br>
-    <div id="displayOpen"><img src="Apple.jpg" alt=""></div><br>
+    <button onclick="클릭1()">이미지보이기1</button><br>
+    <div id="appleDisplay"><img src="Apple.jpg" alt="Apple"></div><br>
+    
     <button onclick="클릭2()">이미지보이기2</button><br>
-    <img src="BaNana.jpg" alt=""><br>
+    <div id="bananaDisplay"><img src="BaNana.jpg" alt="Banana"></div><br>
+    
     <button onclick="클릭3()">이미지보이기3</button><br>
-    <img src="Tree.jpg" alt=""><br>
+    <div id="treeDisplay"><img src="Tree.jpg" alt="Tree"></div><br>
 
     <script>
-    function 클릭1(){
-        let view = document.getElementById('displayOpen');
+    function 클릭1() {
+        let view = document.getElementById('appleDisplay').querySelector('img');
         view.style.display = 'block';
     }
-        </script>
+
+    function 클릭2() {
+        let view = document.getElementById('bananaDisplay').querySelector('img');
+        view.style.display = 'block';
+    }
+
+    function 클릭3() {
+        let view = document.getElementById('treeDisplay').querySelector('img');
+        view.style.display = 'block';
+    }
+    </script>
 </body>
 </html>

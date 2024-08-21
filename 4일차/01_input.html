@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+</head>
+<body>
+    <input type="text" name="" id="user_id">
+    <script>
+        // js의 변수 타입 - var, let, const
+        var v1 = 'banana'; // 변수 재 선언 가능
+        var v1 = 'apple';
+        let le1 = 'banana'; // variable이랑 똑같이 저장이 가능한데, 재 선언이 불가능
+        le1 = 'apple';
+
+        const con1 = '상수'; 
+        // con1의 값이 바뀌지 않음. api 키를 저장 하거나 서버 정보를 저장
+
+        //null, undefined
+        let yy;
+        console.log(yy) // -> undefined 가 나옴. 값이 없음
+        //let dd = document.getElementById('user_id1').value;
+        // 오타가 날 경우 undefined 가 주로 나오게 됨.
+        //console.log(dd);
+        // if (dd=='undefined' || dd==null){
+
+        // }
+
+        console.log(con1)
+        let str = 'abc';
+        console.log('1','2');
+
+        console.log(typeof(str),str);
+
+        //데이터 타입 변환
+        let num = '100'*1;
+        let str1 = 100+'';
+        let testnum = 'ㄱㄴㄷ'*1;
+        console.log(typeof(num),num);
+        console.log(typeof(testnum),testnum);
+
+        // Number() : 숫자로 인식 되게 함
+        console.log(typeof(Number('1.2')),Number('1.2'));
+        // parseInt() : 숫자 인식 (정수!!) 소수점 없음!!
+        console.log(typeof(parseInt('1.2')),parseInt('1.2'));
+        console.log(typeof(parseInt('1')),parseInt('1'));
+        console.log(typeof(parseFloat('10000000000000.2')),parseFloat('10000000000000.2'));
+        console.log(typeof(String(1231234)),String(1231234));
+
+        console.log(typeof(Boolean('true')),Boolean(true));
+
+        console.log(Boolean(parseFloat('1')==parseInt('1')))
+        console.log(Boolean(parseFloat('1.0')==parseInt('1.0')))
+    
+
+    
+    </script>
+</body>
+</html>

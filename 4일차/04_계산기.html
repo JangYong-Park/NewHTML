@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="firstnum">
+    <input type="text" id="secondnum">
+    <button onclick=클릭() >버튼</button>
+    <input type="text" id="result">
+    <!-- id -> html 태그중, tag를 가르킬 수 있는 수단 중 하나
+     value : 사용자가 입력하는 공간, 값 -->
+
+    <script>
+        function 클릭() {
+            let d1 = document.getElementById('firstnum').value;
+            // document.getelementbyid~~ .value를 넣지 않으면 값 안뱉어줌
+            let d2 = document.getElementById('secondnum').value;
+            console.log(d1,d2);
+
+            result = parseInt(d1)+parseInt(d2); 
+            // d1, d2를 각각 int형태로 바꿔서 넣지 않으면 string으로 인식함
+           
+            document.getElementById('result').value = result;
+        }
+    </script>
+</body>
+</html>
