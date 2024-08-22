@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="selectedCheck">
+        <option value="1">딸기</option>
+        <option>바나나</option>
+        <option>오렌지</option>
+    </select>
+    <input type="button" value="전송" onclick="click1()">
+
+    <script>
+        function click1() {
+            let sel = document.getElementById('selectedCheck').value;
+            alert(sel);
+        }
+
+    </script>
+</body>
+</html>
