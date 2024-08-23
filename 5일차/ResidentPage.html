@@ -6,81 +6,184 @@
     <title>Page Practice</title>
     
     <style>
+        
+        @font-face {
+        font-family: 'goorm-sans-bold';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408@1.0/goorm-sans-bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        /* 무료 폰트 */
+        }
+
+        body{
+            font-family: 'goorm-sans-bold';
+        }
         table{
             border-spacing: 0px;
             text-align: center;
-            font-size: 24px;
-            
+            font-size: 16px;
         }
         tr td {
             border: 1px solid black;
-            height: 60px;
-            width: 200px;
+            height: 40px;
+            width: 150px;
             
         }
         td:nth-child(1){
             background-color:beige;
         }
         td:nth-child(2){
-            width: 800px;
+            width: 600px;
             text-align: left;
         }
-        .widthup{
-            width: 200px;
+        .width250px{ width: 200px; }
+        .height40px{ height: 30px; }
+        .margin10px{ margin : 8px; }
+        .introduce{
+            width: 575px;
+            height: 400px;
         }
-        input{
-            margin: 10px;
-            width: 170px;
-            height: 30px;
+        .cbox{
+            width: 25px;
+            height: 25px;
         }
-
+    
     </style>
 </head>
 <body>
     <table>
+        <!-- 
+        아이디 : userid
+        비밀번호 : password
+        비밀번호 확인 : passwordcheck
+        메일주소 : useremail
+        이름 : name
+        주민등록번호 : regisdentnum
+        생일 : birth
+        관심분야 : hobbys
+        자기소개 : intro
+        -->
         <tr>
             <td colspan="2">회원 기본 정보</td>
         </tr>
         <tr>
             <td>아이디 :</td>
-            <td><input type="text">4~12자의 영문 대소문자와 숫자로만 입력</td>
+            <td><input type="text" class="height40px margin10px" id="userid">4~12자의 영문 대소문자와 숫자로만 입력</td>
         </tr>
         <tr>
             <td>비밀번호 :</td>
-            <td><input type="password">4~12자의 영문 대소문자와 숫자로만 입력</td>
+            <td><input type="password" class="height40px margin10px" id="password">4~12자의 영문 대소문자와 숫자로만 입력</td>
         </tr>
         <tr>
             <td>비밀번호확인 :</td>
-            <td><input type="password"></td>
+            <td><input type="password"class="height40px margin10px" id="passwordcheck"></td>
         </tr>
         <tr>
             <td>메일주소 :</td>
-            <td><input type="text" class="widthup"> 예) id@domain.com</td>
+            <td><input type="text" class="width250px height40px margin10px" id="useremail"> 예) id@domain.com</td>
         </tr>
         <tr>
             <td>이름 :</td>
-            <td><input type="text" class="widthup"></td>
+            <td><input type="text" class="width250px height40px margin10px" id="name"></td>
         </tr>
         <tr>
             <td colspan="2">개인 신상 정보</td>
         </tr>
         <tr>
             <td>주민등록번호 :</td>
-            <td><input type="text"> 예) 1234561234567</td>
+            <td><input type="text" class="height40px margin10px" id="regisdentnum"> 예) 0112253******</td>
         </tr>
         <tr>
             <td>생일 :</td>
-            <td><input type="text">년 </option></td>
+            <td><input type="text" class="height40px margin10px" id="birth"> 예) 011225</td>
         </tr>
         <tr>
             <td>관심 분야 :</td>
-            <td></td>
+            <td>
+                <label><input type="checkbox" class="cbox" name="hobbys" value="게임">게임</label>
+                <input type="checkbox" class="cbox" name="hobbys" value="독서">독서
+                <input type="checkbox" class="cbox" name="hobbys" value="수면">수면
+                <input type="checkbox" class="cbox" name="hobbys" value="명상">명상
+                <input type="checkbox" class="cbox" name="hobbys" value="음악감상">음악감상
+            </td>
         </tr>
         <tr>
             <td>자기소개 :</td>
-            <td><input type="text"></td>
+            <td><input type="text" class="introduce margin10px" id="intro"></td>
         </tr>
     </table>
-    
+    <!-- <button onclick="TestButtons()">※ 테스트용 버튼 ※</button> -->
+    <button onclick="Summit()">제출하기</button>
+    <button onclick="Reset()">리셋하기</button>
+
+    <script>
+        function Summit() {
+            if(nullcheck()==1&&RegexCheck==1){
+                alert("회원가입 성공!!")
+            }
+        }
+        function Reset() {
+            location.reload(true);
+        }
+        function nullcheck() {
+            let nullsucessed = 0;
+            if(document.getElementById("userid").value=="") { alert("아이디 를 입력 해주세요."); return 0; }
+            if(document.getElementById("password").value=="") { alert("비밀번호 를 입력 해주세요."); return 0; }
+            if(document.getElementById("passwordcheck").value=="") { alert("비밀번호 확인 을 입력 해주세요."); return 0; }
+            if(document.getElementById("useremail").value=="") { alert("이메일 을 입력 해주세요."); return 0; }
+            if(document.getElementById("name").value=="") { alert("이름 을 입력 해주세요."); return 0; }
+            if(document.getElementById("regisdentnum").value=="") { alert("주민번호 를 입력 해주세요."); return 0; }
+            if(document.getElementById("birth").value=="") { alert("생일 을 입력 해주세요."); return 0; }
+            if(document.getElementsByName("hobbys").value=="") { alert("관심 분야 를 입력 해주세요."); return 0; }
+            if(document.getElementById("intro").value=="") { alert("자기 소개 를 입력 해주세요."); return 0; }
+            return 1;
+        }
+        function RegexCheck() {
+            let regexsucessed = 0;
+
+            var userid = document.getElementById('userid').value;
+            var password = document.getElementById('password').value;
+            var passwordcheck = document.getElementById('passwordcheck').value;
+            var email = document.getElementById('useremail').value;
+            var regisdentnum = document.getElementById('regisdentnum').value;
+            const IdPwRegex = /[a-zA-z0-9]/;
+            const EmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const resiRegex = /[0-9]/;
+            
+            console.log(document.getElementById('userid').value);
+            if(IdPwRegex.test(userid)==false || userid.length < 4 || userid.length > 13){
+                alert('아이디를 양식에 맞게 입력 하십시오.');
+                document.getElementById('userid').value = "";
+                document.getElementById('userid').focus();
+                return 0;
+            }
+            if(IdPwRegex.test(password)==false || password.length < 4 || password.length > 13){
+                alert('비밀번호를 양식에 맞게 입력 하십시오.');
+                document.getElementById('password').value = "";
+                document.getElementById('password').focus();
+                return 0;
+            }
+            if(password != passwordcheck) {
+                alert('비밀번호와 비밀번호 확인에 같은 값을 넣어주세요.');
+                document.getElementById('passwordcheck').value = "";
+                document.getElementById('passwordcheck').focus();
+            }
+            if(EmailRegex.test(email)==false){
+                alert('이메일을 양식에 맞게 입력 하십시오.');
+                document.getElementById('useremail').value = "";
+                document.getElementById('useremail').focus();
+                return 0;
+            }
+            if(resiRegex.test(email)==false || regisdentnum.length != 13){
+                // 주민번호 전용 유효성 검사 추가
+                alert('주민번호를 양식에 맞게 입력 하십시오.');
+                document.getElementById('regisdentnum').value = "";
+                document.getElementById('regisdentnum').focus();
+                return 0;
+            }
+            return 1;
+            
+        }
+    </script>
 </body>
 </html>

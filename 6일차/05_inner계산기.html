@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="" placeholder="첫 번째">
+
+    <select>
+        <option value="+">+</option>
+        <option value="-">-</option>
+    </select>
+    <input type="text" name="" id="" placeholder="두 번째">
+    <input type="button" value="계산" onclick="result()">
+    <!-- <input type="text" name="" id="" placeholder="결과"> -->
+    <!-- 결과 입력 -->
+     <span id="hap"></span>
+    <script>
+        function result() {
+            let tag_sel = document.getElementsByTagName('input');
+            let sel = document.getElementsByTagName('select');
+
+                if(sel[0].value == '+') {
+                    document.getElementById('hap').innerText = parseInt(tag_sel[0].value)+parseInt(tag_sel[1].value);
+                } else {
+                    document.getElementById('hap').innerText = parseInt(tag_sel[0].value)-parseInt(tag_sel[1].value);
+                }
+           
+        }
+    </script>
+</body>
+</html>

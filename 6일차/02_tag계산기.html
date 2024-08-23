@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="첫 번째 수">
+    <select>
+        <option value="1">+</option>
+        <option value="2">-</option>
+    </select>
+        <input type="text" placeholder="두 번째 수">
+        <input type="button" value="계산" onclick="result()">
+        <input type="text" placeholder="결과 출력">
+        <span id="resultspan"></span>
+<!-- 결과 입력 -->
+
+        <script>
+            function result() {
+                let do_tag = document.getElementsByTagName('input');
+                let do_calc = document.getElementsByTagName('select');
+                // option (X) - select (O)
+                
+                let re = 0;
+                console.log(do_calc.value);
+                // for (let i = 0; i < do_calc.length;i++){
+                    if(do_calc[0].value=='1'){
+                        re = Number(do_tag[0].value)+Number(do_tag[1].value)
+                        alert(re);
+                        document.getElementById('resultspan').innerText = re;
+                        return 0;
+
+                    }
+                    else{
+                        re = Number(do_tag[0].value)-Number(do_tag[1].value)
+                        alert(re);
+                        document.getElementById('resultspan').innerText = re;
+                        return 0;
+                    }
+                // }
+                
+                
+            }
+
+        </script>
+</body>
+</html>
