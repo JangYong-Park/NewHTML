@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        body{
+            width: 100vw; /* 현재 화면 너비의 100%, view width */
+            height: 100vh; /* view height */
+            display: flex;
+            /* 방향 */
+            /* flex-direction: row; */
+            /* flex-wrap:wrap - 화면 꽉차면 개행 / nowrap - 개행 안함 */
+            flex-wrap: wrap;
+            /* justify-content : flex-start-좌측정렬 / flex-end-우측정렬 / center-중앙정렬 / space-between-좌,우측,센터정렬*/
+            justify-content: space-between;
+
+            /* 한 줄을 기준으로 수직 정렬 */
+            align-items: flex-start;
+            /* 컨텐츠를 한곳에 모음*/
+            align-content: center;
+        }
+        .box{
+            margin: 2px;
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            background-color: coral;
+        }
+        .item1 {
+            order: 1;
+        }
+        .item2 {
+            order: 2;
+        }
+        .item3 {
+            order: 3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box item3">5</div>
+    <div class="box">6</div>
+    <div class="box item2">7</div>
+    <div class="box item1">8</div>
+</body>
+</html>
