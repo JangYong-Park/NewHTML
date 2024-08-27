@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="id" placeholder="입력">
+    <input type="button" value="버튼" onclick="btnclick()">
+    <span id="result">출력</span>
+    
+    <script>
+        function btnclick() {
+            let inmsg = document.getElementById("id").value;
+            console.log(inmsg);
+            
+            // let span = document.getElementById('result');
+            // span.innerText.value = inmsg.value;
+
+            // input의 값은 value 이고, html의 출력은 innertext or innerhtml
+            
+        } 
+
+    </script>
+</body>
+</html>
