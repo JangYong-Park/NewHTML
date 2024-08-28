@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            list:[{ address : '서울', food : '불고기' },{ address : '부산', food : '어묵' }]
+        }
+
+        //배열로 변경
+        let list = obj.list;
+        for(let i = 0; i < list.length; i++ ){
+            console.log('address : ' + list[i].address);
+            console.log('food : ',list[i].food);
+        }
+    </script>
+</body>
+</html>
