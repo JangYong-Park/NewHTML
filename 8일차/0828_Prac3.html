@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응 속도 측정</title>
+    <style>
+        .mainbtn {
+            width: 500px;
+            height: 500px;
+        }
+        .subbtn {
+            margin: 10px;
+            width: 230px;
+            height: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 반응 속도 측정 버튼 -->
+    <input class="mainbtn"id="btn" type="button" value="버튼" onclick="inputbtn()"><br>
+    
+    <!-- 시작 및 재시작 버튼 -->
+    <input class="subbtn"id="startBtn" type="button" value="시작" onclick="startGame()">
+    <input class="subbtn"id="restartBtn" type="button" value="재시작" onclick="resetGame()" disabled>
+
+    <script>    
+        let startTime;
+        let isGreen = false;
+        let gameTimeout;
+
+        function inputbtn() {
+            if (isGreen) {
+                // 반응 시간을 측정합니다.
+                const reactionTime = new Date() - startTime;
+                alert(`반응 시간: ${reactionTime}ms`);
+                disableGame();
+            } else {
+                // 너무 빨리 눌렀을 때 경고 메시지를 표시합니다.
+                alert('너무 빨리 눌렀습니다!');
+            }
+        }
+
+        function disableGame() {
+            // 게임을 종료합니다.
+            clearTimeout(gameTimeout);  // 현재 타임아웃을 취소합니다.
+            document.getElementById('btn').style.backgroundColor = "";
+            isGreen = false;
+            document.getElementById('startBtn').disabled = true;  // 시작 버튼 비활성화
+            document.getElementById('restartBtn').disabled = false;  // 재시작 버튼 활성화
+        }
+
+        function startGame() {
+            // 게임을 시작합니다.
+            document.getElementById('startBtn').disabled = true;  // 시작 버튼 비활성화
+            document.getElementById('restartBtn').disabled = true;  // 재시작 버튼 비활성화
+            gameTimeout = setTimeout(() => {
+                // 버튼의 색상을 green으로 변경하고 시작 시간을 기록합니다.
+                document.getElementById('btn').style.backgroundColor = "green";
+                startTime = new Date();
+                isGreen = true;
+            }, Math.random() * 10000); // 0에서 10초 사이의 랜덤한 시간 후에 색상이 green으로 바뀝니다.
+        }
+
+        function resetGame() {
+            // 게임을 리셋하고 다시 시작할 준비를 합니다.
+            disableGame();  // 게임을 초기 상태로 되돌립니다.
+            startGame();  // 새 게임을 시작합니다.
+        }
+    </script>
+</body>
+</html>
