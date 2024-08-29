@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>좋아하는 계절</h1>
+    <input type="radio" name="season" value="spring">봄
+    <input type="radio" name="season" value="summer">여름
+    <input type="radio" name="season" value="fall">가을
+    <input type="radio" name="season" value="winter">겨울
+
+    <input type="button" value="전송1">
+    <input type="button" value="전송2">
+<script src="/lib/jquery-3.7.1.js"></script>
+
+<script>
+    function send() {
+        let radio = document.getElementsByName('season');
+        //무엇이 선택됐는지 확인
+        for(let i = 0;i < radio.length; i++){
+            if(radio[i].checked == true){
+                console.log('선택 된 값 : ' , radio[i].value);
+            }
+        }
+    }
+    // jquery 방법 easy
+    function send2() {
+        let hobby = $('input[name="hobby"]:checked');
+        let length = $('input[name="hobby"]:checked').length;
+
+        //위의 방법이 싫을 경우, class를 임시로 지정. $('.inputRadio') => inputRadio라는 클래스 가진 모든 것 불러오기.
+
+        for(let i = 0;i < radio.length; i++){ // ?
+            if(radio[i].checked == true){
+                console.log('선택 된 값 : ' , radio[i].value);
+            }
+        }
+    }
+    function send3() {
+        $('input[name="season"]:checked').val();
+        console.log('선택된 결과 : ',result);
+    }
+
+</script>
+</body>
+</html>
