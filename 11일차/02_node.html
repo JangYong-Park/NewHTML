@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node 호출하기2</title>
+</head>
+<body>
+    <h1>ajax request 보내기</h1>
+    <input type="text" id="userId" placeholder="이름 입력 해주세요">
+    <input type="button" value="ajax 호출" onclick="btn1()">
+    <input type="button" value="resident ajax" onclick="btn2()">
+    <!-- <input type="button" value="페이지이동" onclick="move()"> -->
+
+    <script src="/lib/jquery-3.7.1.js"></script>
+    <script>
+        //페이지 기능
+        function move() {
+            location.href = '02_node.html';
+        }
+
+
+        //데이터 호출
+        function btn1 () {
+            //location.href = 'http://localhost:3000/db'
+            let name = document.getElementById('userId');
+
+            let obj = {'userId':name.value};
+            //초기화
+            name.value = '';
+
+            $.ajax({
+                url : 'http://localhost:3000/get',
+                type: 'get', //default는 get이기 때문에 생략 가능
+                data: obj,
+                dataType: 'json',
+                success: function(res){
+                    console.log(res);
+                    if(res.status == 200){
+                        let list = res.list;
+                        console.log(list);
+                    }
+                }
+            })
+        }
+
+        function btn2 () {
+            //location.href = 'http://localhost:3000/db'
+            let name = document.getElementById('userId');
+
+            let obj = {'userId':name.value};
+            //초기화
+            name.value = '';
+
+            $.ajax({
+                url : 'http://localhost:3000/resident',
+                type: 'resident', //default는 get이기 때문에 생략 가능
+                data: obj,
+                dataType: 'json',
+                success: function(res){
+                    console.log(res);
+                    if(res.status == 200){
+                        let list = res.list;
+                        console.log(list);
+                    }
+                }
+            })
+        }
+
+    </script>
+</body>
+</html>

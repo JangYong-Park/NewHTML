@@ -115,11 +115,14 @@
     <!-- <button onclick="TestButtons()">※ 테스트용 버튼 ※</button> -->
     <button onclick="Summit()">제출하기</button>
     <button onclick="Reset()">리셋하기</button>
+    <button onclick="insertDataToDB()">Test</button>
 
-    <script src="/lib/jquery-3.7.1.js"></script>
     <script>
         function Summit() {
             if(nullcheck()==1&&RegexCheck==1){
+                insertDataToDB()
+
+
                 alert("회원가입 성공!!")
             }
         }
@@ -184,6 +187,34 @@
             }
             return 1;
             
+        }
+        function insertDataToDB() {
+            var userid = document.getElementById('userid').value;
+            var password = document.getElementById('password').value;
+            var email = document.getElementById('useremail').value;
+            var username = document.getElementById('name').value;
+            var regisdentnum = document.getElementById('regisdentnum').value;
+
+            let obj = {'userId':userid.value,'password':password.value,'useremail':email.value,'name':username.value,'regisdentnum':regisdentnum.value};
+            //초기화
+            // name.value = '';
+
+            $.ajax({
+                url : 'http://localhost:3000/resident',
+                type: 'resident', //default는 get이기 때문에 생략 가능
+                data: obj,
+                dataType: 'json',
+                success: function(res){
+                    console.log(res);
+                    if(res.status == 200){
+                        let list = res.list;
+                        console.log(res);
+                        
+                    }
+                }
+            })
+            
+
         }
     </script>
 </body>
