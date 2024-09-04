@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <button type="button" class="btn btn-primary" onclick="getBtn()">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button><br>
+    <button type="button" class="btn btn-success" onclick="callB()">CallbBack 함수</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+
+    <button type="button" class="btn btn-link">Link</button>
+
+    <script src="/lib/jquery-3.7.1.js"></script>
+    <script>
+
+        //callback 함수 - 중복된 코드를 최소화하는게 주 목적
+        //★ 특징으로는, 매개변수 안에 함수가 들어가는 게 특징
+
+        function callB() {
+            cb("원하는 함수")
+        }
+
+        function first() {
+            alert('first');
+        }
+
+        function second() {
+            alert('second');
+        }
+
+        function cb(fn) {
+            fn();
+            console.log('실행 영역');
+        }
+
+        function callBB() {
+            abc();
+            function abc() {
+                alert('abc');
+            }
+            let fn = () => {
+                alert('fn');
+            }
+            fn();
+            //callBack 함수
+            callBa(function() {
+               alert('a의 동작'); 
+            },5)
+        }
+
+        function humanA() {
+            alert('함수 호출');
+
+        }
+
+        //A랑 협력을 해야 하는데, 지각을 함
+        //B라는 사람이 만들기로 했음
+        function callBa(fn, number) {
+            
+            //A의 역할
+            fn();
+
+            //B의 역할
+            alert(number*number);
+        }
+
+
+
+        function getBtn() {
+
+            //비동기 통신
+            $.ajax({
+               type: 'get',
+               url: 'http://localhost:3000/get',
+               success: function(res){
+                    console.log(res);
+               } 
+            });
+        }
+        //2번째 실행
+        document.querySelectorAll('button[type="button"]')
+        [1].addEventListener('click', function() {
+            let obj = {name: '슈퍼맨'};
+            
+            $.ajax({
+                url: 'http://localhost:3000/send1',
+                type: 'post',
+                data: JSON.stringify(obj),
+                contentType: 'application/json',
+                success: function(res){
+                    console.log(res);
+                }
+            })
+        })
+    </script>
+</body>
+</html>

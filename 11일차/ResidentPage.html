@@ -117,6 +117,7 @@
     <button onclick="Reset()">리셋하기</button>
     <button onclick="insertDataToDB()">Test</button>
 
+    <script src="/lib/jquery-3.7.1.js"></script>
     <script>
         function Summit() {
             if(nullcheck()==1&&RegexCheck==1){
@@ -189,19 +190,26 @@
             
         }
         function insertDataToDB() {
-            var userid = document.getElementById('userid').value;
-            var password = document.getElementById('password').value;
-            var email = document.getElementById('useremail').value;
-            var username = document.getElementById('name').value;
-            var regisdentnum = document.getElementById('regisdentnum').value;
+            let userid = document.getElementById('userid').value;
+            let password = document.getElementById('password').value;
+            let email = document.getElementById('useremail').value;
+            let username = document.getElementById('name').value;
+            let regisdentnum = document.getElementById('regisdentnum').value;
 
-            let obj = {'userId':userid.value,'password':password.value,'useremail':email.value,'name':username.value,'regisdentnum':regisdentnum.value};
+            let obj = {
+                'user_id':userid,
+                'user_pw':password,
+                'user_email':email,
+                'user_name':username,
+                'user_resudentid':regisdentnum
+            };
             //초기화
-            // name.value = '';
+            userid, password, email, username, regisdentnum = '';
+
 
             $.ajax({
                 url : 'http://localhost:3000/resident',
-                type: 'resident', //default는 get이기 때문에 생략 가능
+                type: 'get', //default는 get이기 때문에 생략 가능
                 data: obj,
                 dataType: 'json',
                 success: function(res){
