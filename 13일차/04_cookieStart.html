@@ -8,10 +8,11 @@
 <body>
     <h1>쿠키 간단한 사용</h1>
     <input type="button" value="쿠키 체크하기" onclick="getCookie()">
-    <input type="button" value="쿠키 저장" onclick="setCookie()"></br>
+    <input type="button" value="쿠키 저장" onclick="setCookie()">
+    <input type="button" value="쿠키 전체 삭제 / 기능 X"></br>
     <script>
         //기본 쿠키 설정
-        document.cookie="username=John Doe";
+        // document.cookie="username=John Doe";
 
         function setCookie() {
             document.cookie = 'cook=value'; // name = value, key = value
