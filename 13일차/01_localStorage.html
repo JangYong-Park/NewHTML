@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="저장" onclick="save()">
+    <input type="button" value="불러오기" onclick="load()">
+    <input type="button" value="삭제" onclick="del()">
+    <input type="button" value="전체삭제" onclick="delAll()">
+    <input type="button" value="다음페이지" onclick="move()">
+    
+
+    <script>
+
+        //localstorage - server가 아닌 사용자 pc에 저장하는 방식
+        //내가 만든 사이트 외, 다른 곳에서 localstorage 사용 했을 경우 덮어씌워질 가능성 존재
+        // 1.naver에서 key를 'user' 로 na10으로 저장
+        // 2. google에서 key값을 'user' 로 go20으로 저장
+
+        //naver에서 na10을 저장했지만 go20 으로 표시
+        //영구적 데이터 보관 절대 x
+        // db에서 데이터를 1000만건을 불러 옵니다. 한 페이지 이동할 때 마다 같은 데이터를 불러옴
+        // 똑같은 데이터는 또 다시 부를 필요가 없음
+        // 또 다시 부르지 않기 위해 사용자 pc에 임시적으로 보관. 이 방식은 js에서는 잘 사용 안함
+        //react , vue가 도입이 되면서 이 기능이 뜨기 시작.
+        //react의 특징은 처음 불러올 때만 느리고, 그 뒤로는 빠름 ( 처음에 다 가져오고 사용자 pc에 저장 )
+
+        //언제 삭제 되는가? -> 사용자 cookie 삭제 시 같이 삭제됨
+        
+        function delAll() {
+            localStorage.clear(); // 모든 key 삭제 ★★★
+        }
+
+        function del() { // 내가 선택한 key만 삭제
+            localStorage.removeItem('key')
+        }
+        function move() {
+            location.href = '02_locationItem.html';
+        }
+
+        function save() {
+            localStorage.setItem('key','ㅁ?');
+            
+        }
+
+        //불러오기
+        function load() {
+            let test = localStorage.getItem('key');
+            console.log(test);
+        }
+
+    </script>
+</body>
+</html>

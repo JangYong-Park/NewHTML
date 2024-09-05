@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>쿠키 간단한 사용</h1>
+    <input type="button" value="쿠키 체크하기" onclick="getCookie()">
+    <input type="button" value="쿠키 저장" onclick="setCookie()"></br>
+    <script>
+        //기본 쿠키 설정
+        document.cookie="username=John Doe";
+
+        function setCookie() {
+            document.cookie = 'cook=value'; // name = value, key = value
+        }
+        
+        function delCookie() {
+            let cookName = document.getElementById('inpName');
+
+            console.log('삭제대상 쿠키 : ',cookName.value);
+
+            document.cookie = cookName.value+'= ;Max-age=-1';
+        }
+
+    </script>
+
+    <h1>쿠키 만료기간 만들기</h1>
+    <input type="button" value="쿠키 체크하기" onclick="getCookie()">
+    <input type="button" value="쿠키 저장" onclick="setDayCookie()"></br>
+    <input type="button" value="nax-age 저장" onclick="maxSave()">
+    <input type="input" id="inpName" placeholder="쿠키 이름" onclick="getNameCookie()">
+    <input type="button" value="쿠키 Test" onclick="setDayCookieTest()"></br>
+    <input type="button" value="쿠키 Test" onclick="setDayCookieTest()"></br>
+
+
+    <script>
+        function getNameCookie() {
+            let cookName = document.getElementById('inpName');
+            let va = getCookies(cookName.value);
+            console.log('value : ',va);
+            cookName.value = '';
+            cookName.focus();
+        }
+
+
+        function setDayCookie() {
+            let date = new Date();
+            date.setTime(date.getDate() + (1000 * 60 * 60 * 24));
+            console.log(date.toUTCString());
+
+            let expires = 'expires = '+date.toUTCString()+';';
+            document.cookie = 'day=cook;'+expires;
+        }
+        //만료기간을 설정하기 위해서는 cookie에 expires 옵션을 추가 해야 함
+        //expire의 경우, 시계 형식 UTC , GMT 방식
+        // document.cookie="username=John ?; expires=Fri, 31 Dec 2024 23:59:59 GMT";
+        function setDayCookieTest() {
+            let date = new Date();
+            date.setTime(date.getTime() + (1000 * 60 * 60 * 24));
+            
+            console.log(date.toUTCString());
+
+            let expires = 'expires = '+date.toUTCString()+';';
+            document.cookie = 'day=cook;'+expires;
+        }
+        function getCookie() {
+            console.log(document.cookie);
+        }
+
+        //max-age
+        function maxSave() {
+            //숫자로 저장을 하는데, 1 = 1초
+            document.cookie = 'obj=apple; max-age='+5;
+        }
+
+        //Secure.
+        //SSL 적용 된 것만. cookie가 실행 되도록 설정.
+        document.cookie='sec=value; Secure;';
+
+        //Domain
+        //주소. localhost
+        //https://www.naver.com = > naver.com 이 도메인
+        document.cookie='doc=banana; Domain=localhost';
+        //Domain속성을 입력 안 할 경우, Defalut로 현재 페이지의 domain이 자동으로 입력
+        //현재 페이지와 쿠키가 저장된 Domain이 일치하지 않으면, Cookie는 실행 되지 않는다.
+
+        //Path
+        document.cookie = 'pa=papa; path=/';
+        //서버에 대한 환경에 따라서 있는 경우가 있고, 없는 경우가 있음.
+        //한국은 없는 경우가 대부분. ( 이유는 ip가 너무 많아요. )
+
+        //ip한 개로 여러 회사가 같이사용 = > port로 구분. ( ip => port => path )
+        //Path는 '/'이게 현재 폴더 위치 '../lib/asset'
+        function getCookies(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(nameEQ) == 0) {
+            return c.substring(nameEQ.length, c.length);
+        }
+    }
+    return null;
+}
+
+//cookie 저장 형태
+cook=100; cook1=150
+    </script>
+
+</body>
+</html>
