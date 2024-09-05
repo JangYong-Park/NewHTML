@@ -190,40 +190,47 @@
             
         }
         function insertDataToDB() {
-            let userid = document.getElementById('userid').value;
-            let password = document.getElementById('password').value;
-            let email = document.getElementById('useremail').value;
-            let username = document.getElementById('name').value;
-            let regisdentnum = document.getElementById('regisdentnum').value;
+    let userid = document.getElementById('userid').value;
+    let password = document.getElementById('password').value;
+    let email = document.getElementById('useremail').value;
+    let username = document.getElementById('name').value;
+    let regisdentnum = document.getElementById('regisdentnum').value;
 
-            let obj = {
-                'user_id':userid,
-                'user_pw':password,
-                'user_email':email,
-                'user_name':username,
-                'user_resudentid':regisdentnum
-            };
-            //초기화
-            userid, password, email, username, regisdentnum = '';
+    let obj = {
+        'user_id': userid,
+        'user_pw': password,
+        'user_email': email,
+        'user_name': username,
+        'user_resudentid': regisdentnum
+    };
 
+    // Clear the form fields (optional, can be removed if not needed)
+    userid = '';
+    password = '';
+    email = '';
+    username = '';
+    regisdentnum = '';
 
-            $.ajax({
-                url : 'http://localhost:3000/resident',
-                type: 'get', //default는 get이기 때문에 생략 가능
-                data: obj,
-                dataType: 'json',
-                success: function(res){
-                    // console.log(res);
-                    if(res.status == 200){
-                        let list = res.list;
-                        console.log(res);
-                        
-                    }
-                }
-            })
-            
-
+    $.ajax({
+        url: 'http://localhost:3000/resident',
+        type: 'post', // Change from 'get' to 'post'
+        contentType: 'application/json', // Send as JSON
+        data: JSON.stringify(obj), // Convert object to JSON string
+        dataType: 'json',
+        success: function(res) {
+            // Handle the response here
+            if (res.status === 200) {
+                let list = res.list;
+                console.log(res);
+                // Additional code to handle success response if needed
+            }
+        },
+        error: function(xhr, status, error) {
+            // Handle error response here
+            console.error('Error occurred:', error);
         }
+    });
+}
     </script>
 </body>
 </html>
